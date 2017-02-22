@@ -1,0 +1,87 @@
+/* line 1, ../sass/_base.scss */
+body {
+  background: #232323;
+  font-family: "Montserrat", "Avenir", "Lato", arial;
+  margin: 0;
+}
+
+/* line 7, ../sass/_base.scss */
+h1 {
+  color: white;
+  transition: 0.4s ease-in-out;
+  text-align: center;
+  background-color: steelblue;
+  margin: 0;
+  padding: 20px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+}
+/* line 19, ../sass/_base.scss */
+h1 #colorDisplay {
+  font-size: 200%;
+}
+
+/* line 24, ../sass/_base.scss */
+#stripe {
+  background-color: white;
+  height: 30px;
+  text-align: center;
+  color: black;
+}
+
+/* line 31, ../sass/_base.scss */
+#container {
+  margin: 20px auto;
+  max-width: 600px;
+}
+/* line 34, ../sass/_base.scss */
+#container .square {
+  width: 30%;
+  background: purple;
+  padding-bottom: 30%;
+  float: left;
+  transition: background 0.6s;
+  margin: 1.66%;
+  border-radius: 50%;
+}
+
+/* line 45, ../sass/_base.scss */
+#message {
+  display: inline-block;
+  width: 20%;
+}
+
+/* line 51, ../sass/_base.scss */
+button {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  height: 100%;
+  font-weight: 700;
+  color: steelblue;
+  letter-spacing: 1px;
+  font-size: inherit;
+  font-weight: bold;
+  outline: none;
+  font-family: "Lato", "Montserrat", "Avenir", arial;
+  transition: all 0.3s ease-in-out;
+}
+/* line 64, ../sass/_base.scss */
+button:hover {
+  background-color: steelblue;
+  color: white;
+}
+
+/* line 70, ../sass/_base.scss */
+.selected {
+  background-color: steelblue;
+  color: white;
+}
+
+/* line 75, ../sass/_base.scss */
+.hide {
+  display: none;
+}

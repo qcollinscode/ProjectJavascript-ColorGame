@@ -1,0 +1,21 @@
+{
+  "name": "default",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "qcollinscode <ilovelife4lyfe@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}

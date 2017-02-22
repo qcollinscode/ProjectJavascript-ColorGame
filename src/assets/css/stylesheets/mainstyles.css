@@ -1,12 +1,20 @@
-/* line 1, ../sass/_base.scss */
+/* line 1, ../sass/mainstyles.scss */
 body {
   background: #232323;
   font-family: "Montserrat", "Avenir", "Lato", arial;
   margin: 0;
+  /**
+   * TITLE and RGB
+   */
+  /**
+   * STRIP
+   */
+  /**
+   * SQUARE CONTAINER
+   */
 }
-
-/* line 7, ../sass/_base.scss */
-h1 {
+/* line 9, ../sass/mainstyles.scss */
+body h1 {
   color: white;
   transition: 0.4s ease-in-out;
   text-align: center;
@@ -19,43 +27,31 @@ h1 {
   display: flex;
   flex-direction: column;
 }
-/* line 19, ../sass/_base.scss */
-h1 #colorDisplay {
+/* line 21, ../sass/mainstyles.scss */
+body h1 #colorDisplay {
   font-size: 200%;
 }
-
-/* line 24, ../sass/_base.scss */
-#stripe {
+/* line 29, ../sass/mainstyles.scss */
+body #stripe {
   background-color: white;
   height: 30px;
   text-align: center;
   color: black;
+  /**
+   * MESSAGE
+   */
+  /**
+   * BUTTONS
+   */
 }
-
-/* line 31, ../sass/_base.scss */
-#container {
-  margin: 20px auto;
-  max-width: 600px;
-}
-/* line 34, ../sass/_base.scss */
-#container .square {
-  width: 30%;
-  background: purple;
-  padding-bottom: 30%;
-  float: left;
-  transition: background 0.6s;
-  margin: 1.66%;
-  border-radius: 50%;
-}
-
-/* line 45, ../sass/_base.scss */
-#message {
+/* line 38, ../sass/mainstyles.scss */
+body #stripe #message {
   display: inline-block;
   width: 20%;
+  font-weight: bold;
 }
-
-/* line 51, ../sass/_base.scss */
-button {
+/* line 47, ../sass/mainstyles.scss */
+body #stripe button {
   border: none;
   background: none;
   text-transform: uppercase;
@@ -69,19 +65,40 @@ button {
   font-family: "Lato", "Montserrat", "Avenir", arial;
   transition: all 0.3s ease-in-out;
 }
-/* line 64, ../sass/_base.scss */
-button:hover {
+/* line 60, ../sass/mainstyles.scss */
+body #stripe button:hover {
   background-color: steelblue;
   color: white;
 }
+/* line 70, ../sass/mainstyles.scss */
+body #container {
+  margin: 20px auto;
+  max-width: 600px;
+  /**
+   * SQUARES
+   */
+}
+/* line 77, ../sass/mainstyles.scss */
+body #container .square {
+  width: 30%;
+  background: purple;
+  padding-bottom: 30%;
+  float: left;
+  transition: background 0.6s;
+  margin: 1.66%;
+  border-radius: 50%;
+}
 
-/* line 70, ../sass/_base.scss */
+/**
+ * ADD/REMOVE SELECTORS FOR JAVASCRIPT
+ */
+/* line 92, ../sass/mainstyles.scss */
 .selected {
-  background-color: steelblue;
-  color: white;
+  background-color: steelblue !important;
+  color: white !important;
 }
 
-/* line 75, ../sass/_base.scss */
+/* line 97, ../sass/mainstyles.scss */
 .hide {
-  display: none;
+  display: none !important;
 }

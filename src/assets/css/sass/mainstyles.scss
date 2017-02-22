@@ -1,4 +1,99 @@
-@import 'base';
-@import 'hero';
-@import 'gallery';
-@import 'nav';
+body {
+  background: #232323;
+  font-family: "Montserrat", "Avenir", "Lato", arial;
+  margin: 0;
+
+/**
+ * TITLE and RGB
+ */
+  h1 {
+    color: white;
+    transition: 0.4s ease-in-out;
+    text-align: center;
+    background-color: steelblue;
+    margin: 0;
+    padding: 20px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    #colorDisplay {
+      font-size: 200%;
+    }
+  }
+
+/**
+ * STRIP
+ */
+  #stripe {
+    background-color: white;
+    height: 30px;
+    text-align: center;
+    color: black;
+
+    /**
+     * MESSAGE
+     */
+    #message {
+      display: inline-block;
+      width: 20%;
+      font-weight: bold;
+    }
+
+/**
+ * BUTTONS
+ */
+    button {
+      border: none;
+      background: none;
+      text-transform: uppercase;
+      height: 100%;
+      font-weight: 700;
+      color: steelblue;
+      letter-spacing: 1px;
+      font-size: inherit;
+      font-weight: bold;
+      outline: none;
+      font-family: "Lato", "Montserrat", "Avenir", arial;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: steelblue;
+        color: white;
+      }
+    }
+  }
+
+/**
+ * SQUARE CONTAINER
+ */
+  #container {
+    margin: 20px auto;
+    max-width: 600px;
+
+    /**
+     * SQUARES
+     */
+    .square {
+      width: 30%;
+      background: purple;
+      padding-bottom: 30%;
+      float: left;
+      transition: background 0.6s;
+      margin: 1.66%;
+      border-radius: 50%;
+    }
+  }
+}
+
+/**
+ * ADD/REMOVE SELECTORS FOR JAVASCRIPT
+ */
+.selected {
+  background-color: steelblue!important;
+  color: white!important;
+}
+
+.hide {
+  display: none!important;
+}

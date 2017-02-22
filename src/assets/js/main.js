@@ -15,7 +15,6 @@ const displays = document.querySelectorAll("span"),
 /*****************************************************
 **| Variable Reassignments
 ******************************************************/
-
     /**
      * Set the display title text to the picked color
      */
@@ -24,6 +23,7 @@ const displays = document.querySelectorAll("span"),
 
 
 for (var i = 0; i < modeButtons.length; i++) {
+
   addEventListener([modeButtons[i]], "click", function () {
     /**
      * Reset the title background-color

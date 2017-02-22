@@ -6,13 +6,14 @@ import autoprefixer from 'gulp-autoprefixer';
 import bs from 'browser-sync';
 import minifyCss from 'gulp-clean-css';
 import imagemin from 'gulp-imagemin';
-import minifyJs from 'gulp-minify';
+import minifyJs from 'gulp-uglify';
 import babel from 'gulp-babel';
 import rename from 'gulp-rename';
 import plumber from 'gulp-plumber';
 import watch from 'gulp-watch';
 import merge from 'merge-stream';
 import del from 'del';
+import strip from 'gulp-strip-comments';
 
 /**
  * Variables
@@ -62,6 +63,7 @@ gulp.task('scripts', () => {
     .pipe(rename({
       extname: '.js'
     }))
+    .pipe(strip())
     .pipe(minifyJs({
       ext:{
         min:'.js'

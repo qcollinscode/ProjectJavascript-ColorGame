@@ -1,13 +1,13 @@
 /*****************************************************
 **| Variables
 ******************************************************/
-var numSquares = 6,
+var numCircles = 6,
     colors = [],
     pickedColor;
 
 
 const displays = document.querySelectorAll("span"),
-      squares = document.querySelectorAll('.square'),
+      circles = document.querySelectorAll('.square'),
       h1 = document.querySelector("h1"),
       resetButton = document.querySelectorAll("button")[0],
       modeButtons = document.querySelectorAll(".mode");
@@ -17,86 +17,52 @@ init();
 
 function init() {
   modeButtonsInit();
-  squaresInit();
+  circlesInit();
   reset();
 }
 
-function squaresInit() {
-  /********************************
-   * SQUARES
-   ******************************/
+/********************************
+* Circles
+******************************/
+function circlesInit() {
+  addEventListener(circles, "click", function() {
 
-   /**
-    * When a square is clicked
-    */
-  addEventListener(squares, "click", function() {
-
-    /**
-     * Grab the background color of the square clicked
-     */
     var clickedColor = this.style.backgroundColor;
 
-    /**
-     * Check to see if the background-color of the square clicked matches the picked color. If it does
-     */
-    clickedColor === pickedColor ? (
+    // When the correct circle is clicked
+    if( clickedColor === pickedColor ) {
 
-      /**
-       * Display the message correct
-       */
-      displays[1].textContent = "Correct!",
+        displays[1].textContent = "Correct!";
 
-      /**
-       * Set the background-color of all the squares to the picked color
-       */
-      changeColors(squares, pickedColor),
+        // make all circles and the header the same color as the picked color
+        changeColors(circles, pickedColor);
+        h1.style.backgroundColor = pickedColor;
+        resetButton.textContent = "Play Again?";
 
-      /**
-       * Set the background-color of the title to the picked color
-       */
-      h1.style.backgroundColor = pickedColor,
+    } else {
 
-      /**
-       * Change the reset button text to "Play Again"
-       */
-      resetButton.textContent = "Play Again?"
+        // Fade the clicked circle out
+        this.style.backgroundColor = "#232323";
+        displays[1].textContent = "Try Again";
 
-    ) : (
-      /**
-       * If not then hide the square by making the same color as the body background color
-       */
-      this.style.backgroundColor = "#232323",
+    };
 
-      /**
-       * and change the reset display title to "Try Again"
-       */
-      displays[1].textContent = "Try Again"
-    );
   });
 }
 
+
+/*******************************************
+* Easy and Hard Buttons
+******************************************/
 function modeButtonsInit() {
-  /*******************************************
-   * Easy and Hard Buttons
-   ******************************************/
   for (var i = 0; i < modeButtons.length; i++) {
 
     addEventListener([modeButtons[i]], "click", function () {
-      /**
-       * Remove the selected class from both buttons
-       */
       removeClass([modeButtons[0], modeButtons[1]], "selected");
-
-      /**
-       * Add the selected class to the button thats being clicked
-       */
       addClass([this], "selected");
 
-      /**
-       * If the easy button is being clicked set the numSquares to 3 otherwise set it to 6
-       */
-      this === modeButtons[0] ? numSquares = 3 : numSquares = 6;
-
+      // If the first mode button is clicked set the num circles to 3 else set it the 6
+      this === modeButtons[0] ? numCircles = 3 : numCircles = 6;
       /**
        * Reset the game
        */
@@ -112,67 +78,32 @@ function modeButtonsInit() {
  * Reset
  ******************************************/
 function reset() {
-  /**
-   * Generate a new list of colors
-   */
-  colors = generateRandomColor(numSquares);
+  // Generate a new array of rgb strings
+  colors = generateRandomColor(numCircles);
 
-  /**
-   * Generate a new picked color
-   */
+  // Pick a new rgb string from the colors array
   pickedColor = pickColor();
 
-  /**
-   * Set the display title text to the generated picked color
-   */
+  // Display the chosen rgb string on the screen
   displays[0].textContent = pickedColor;
 
-  /**
-   * Set all squares display property to block
-   */
-  setStyles(squares, {display: "block"});
+  setStyles(circles, {display: "block"});
 
-  /**
-   * Loop over each square
-   */
-  for(var i = 0; i < squares.length; i++) {
-    /**
-     * and check to see if it has a color for it in the color array. If it does, show it, else hide it
-     */
-    colors[i] ? removeClass([squares[i]], "hide") : addClass([squares[i]], "hide");
+  // If there is a color for the circle show the circle, else remove it
+  for(var i = 0; i < circles.length; i++) {
+    colors[i] ? removeClass([circles[i]], "hide") : addClass([circles[i]], "hide");
   }
-  /**
-   * Recolor the background of the squares from the list of generated colors
-   */
-  colorUs(squares, "backgroundColor", colors);
 
-  /**
-   * Reset the message display
-   */
+  colorUs(circles, "backgroundColor", colors);
   displays[1].textContent = "";
-
-  /**
-   * Reset the title background-color
-   */
   h1.style.backgroundColor = "steelblue";
-
-  /**
-   * Reset the button text
-   */
-  resetButton.textContent = "New Colors"
+  resetButton.textContent = "New Colors";
 }
 
   /************************************
    * RESET BUTTON
    ***********************************/
-
-   /**
-    * When the reset button is clicked
-    */
   addEventListener([resetButton], "click", function () {
-    /**
-     * Reset the game
-     */
     reset();
   });
 
@@ -180,22 +111,10 @@ function reset() {
  * COLOR ARRAY GENERATOR
  ********************************/
 function generateRandomColor(num) {
-
-/**
- * Create an empty array
- */
   var arr = [];
-
-  /**
-   * Push each random rgb strings generated into the empty array
-   */
   for(var x = 0; x < num; x++) {
     arr.push(randomColor());
   }
-
-  /**
-   * Return the array of generated rgb strings
-   */
   return arr;
 }
 
@@ -203,17 +122,9 @@ function generateRandomColor(num) {
  * RANDOM RGB STRING GENERATOR
  *******************************/
 function randomColor() {
-
-  /**
-   * Generate three random whole numbers between 0 and 255 and assign the values to r, b, and g;
-   */
   var r = Math.floor(Math.random() * 256);
   var b = Math.floor(Math.random() * 256);
   var g = Math.floor(Math.random() * 256);
-
-  /**
-   * Return a string of "rgb()" and the random generated numbers concatenated
-   */
   return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
@@ -221,14 +132,6 @@ function randomColor() {
  * RANDOM COLOR PICK GENERATOR
  ****************************/
 function pickColor() {
-
-  /**
-   * Generate a random number between 0 and whatever the length of the colors array is
-   */
   var random = Math.floor(Math.random() * colors.length);
-
-  /**
-   * return the rgb string from the generated color array with the same key value as the generated random number
-   */
   return colors[random];
 }
